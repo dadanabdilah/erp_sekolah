@@ -150,7 +150,7 @@
                         <select id="jenis" name="jenis" class="form-control select2" style="width: 100%;">
                             <option selected="selected" disabled>Pilih</option>
                             <option value="Uang Masuk" <?=  $keys->jenis == "Uang Masuk" ? "selected" : "" ?> >Uang Masuk</option>
-                            <option value="Uang Keluar" <? $keys->jenis == "Uang Keluar" ? "selected" : "" ?> >Uang Keluar</option>
+                            <option value="Uang Keluar" <?= $keys->jenis == "Uang Keluar" ? "selected" : "" ?> >Uang Keluar</option>
                         </select>
                     </div>
                     <div class="form-group">

@@ -20,7 +20,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai">
                             Export Laporan +
                         </button>
                     </div>
@@ -71,6 +71,49 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('modal') ?>
+<div class="modal fade" id="modal-nilai">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Export Data</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form action="<?= base_url('laporan/export/nilai') ?>" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nama Siswa</label>
+                        <select id="nis" name="nis" class="form-control select2" style="width: 100%;">
+                            <option selected="selected" disabled>Pilih</option>
+                            <option value="Semua" >Semua Siswa</option>
+                            <?php foreach ($Siswa as $siswa) { ?>
+                                <option value="<?= $siswa->nis ?>" ><?= $siswa->nama_siswa ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Kelas</label>
+                        <select id="id_kelas" name="id_kelas" class="form-control select2" style="width: 100%;">
+                            <option selected="selected" disabled>Pilih</option>
+                            <option value="Semua">Semua Kelas</option>
+                            <?php foreach ($Kelas as $kelas) { ?>
+                                <option value="<?= $kelas->id ?>" ><?= $kelas->kelas ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>

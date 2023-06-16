@@ -13,7 +13,7 @@ class SiswaModel extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kelas','nama_siswa','jk','alamat','no_hp','nama_orang_tua','pekerjaan_orang_tua'];
+    protected $allowedFields    = ['nis','id_kelas','nama_siswa','jk','alamat','no_hp','nama_orang_tua','pekerjaan_orang_tua'];
 
     // Dates
     protected $useTimestamps = false;

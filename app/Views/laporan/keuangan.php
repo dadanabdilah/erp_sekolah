@@ -20,7 +20,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-keuangan">
                             Export Laporan +
                         </button>
                     </div>
@@ -73,6 +73,46 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('modal') ?>
+<div class="modal fade" id="modal-keuangan">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Export Data</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form action="<?= base_url('laporan/export/keuangan') ?>" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Jenis</label>
+                        <select id="jenis" name="jenis" class="form-control select2" style="width: 100%;">
+                            <option selected="selected" disabled>Pilih</option>
+                            <option value="Semua">Semua</option>
+                            <option value="Uang Masuk">Uang Masuk</option>
+                            <option value="Uang Keluar">Uang Keluar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Awal</label>
+                        <input class="form-control" type="date" id="tanggal_awal" name="tanggal_awal" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Akhir</label>
+                        <input class="form-control" type="date" id="tanggal_akhir" name="tanggal_akhir" required/>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>

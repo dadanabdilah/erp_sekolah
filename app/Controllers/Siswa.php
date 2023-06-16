@@ -43,8 +43,8 @@ class Siswa extends BaseController
         ];
 
 
-        $result = $this->Siswa->save($request);
-
+        $result = $this->Siswa->insert($request);
+        dd($result);
         if($result){
             session()->setFlashdata('message', 'Tambah Data Siswa Berhasil');
         }else{
