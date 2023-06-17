@@ -33,7 +33,7 @@
 				<!-- small box -->
 				<div class="small-box bg-info">
 					<div class="inner">
-						<h3>150</h3>
+						<h3><?= $Pengguna ?></h3>
 						<p>Total Penggua</p>
 					</div>
 					<div class="icon">
@@ -47,7 +47,7 @@
 				<!-- small box -->
 				<div class="small-box bg-success">
 					<div class="inner">
-						<h3>53<sup style="font-size: 20px">%</sup></h3>
+						<h3>Rp. <?= number_format($UangMasuk,0,".",",") ?></h3>
 						<p>Total Uang Masuk</p>
 					</div>
 					<div class="icon">
@@ -60,7 +60,7 @@
 				<!-- small box -->
 				<div class="small-box bg-danger">
 					<div class="inner">
-						<h3>65</h3>
+						<h3>Rp. <?= number_format($UangKeluar,0,".",",") ?></h3>
 						<p>Total Uang Keluar</p>
 					</div>
 					<div class="icon">
