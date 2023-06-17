@@ -26,11 +26,11 @@ class Login extends BaseController
                 if($result){
                     $pass = md5($request['password']);
                     $pengguna = $this->Pengguna->where('email', $request['email'])->where('password', $pass)->first();
-                    if($result){
+                    if($pengguna){
                         $session_data = [
                             'email'		=> $request['email'],
-                            'nama_pengguna' => $result->nama_pengguna,
-                            'jabatan' => $result->jabatan,
+                            'nama_pengguna' => $pengguna->nama_pengguna,
+                            'jabatan' => $pengguna->jabatan,
                             'sudah_login'   => TRUE
                         ];
     
