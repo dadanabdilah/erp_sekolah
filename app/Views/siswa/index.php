@@ -45,6 +45,7 @@
                                     <th>Nama Orang Tua</th>
                                     <th>Pekerjaan Orang Tua</th>
                                     <th>Kelas</th>
+                                    <th>Tahun Akademik</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -59,6 +60,7 @@
                                         <td><?= $key->nama_orang_tua ?></td>
                                         <td><?= $key->pekerjaan_orang_tua ?></td>
                                         <td><?= $key->kelas ?></td>
+                                        <td><?= $key->tahun ?></td>
                                         <td>
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-update<?= $key->nis ?>">Edit</button>
                                             <a href="<?= base_url('kelas/delete/' . $key->nis)  ?>" class="btn btn-warning btn-sm" >Hapus</button>
@@ -134,6 +136,15 @@
                             <?php } ?>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Tahun Akademik</label>
+                        <select id="id_thn_akademik" name="id_thn_akademik" class="form-control select2" style="width: 100%;">
+                            <option selected="selected" disabled>Pilih</option>
+                            <?php foreach ($TahunAkademik as $akademik) { ?>
+                                <option value="<?= $akademik->id ?>"><?= $akademik->tahun ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -197,7 +208,16 @@
                         <select id="id_kelas" name="id_kelas" class="form-control select2" style="width: 100%;">
                             <option selected="selected" disabled>Pilih</option>
                             <?php foreach ($Kelas as $kelas) { ?>
-                                <option value="<?= $kelas->id ?>" <?= $kelas->id == $key->id ? "selected" : "" ?> ><?= $kelas->kelas ?></option>
+                                <option value="<?= $kelas->id ?>" <?= $kelas->id == $key->id_kelas ? "selected" : "" ?> ><?= $kelas->kelas ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tahun Akademik</label>
+                        <select id="id_thn_akademik" name="id_thn_akademik" class="form-control select2" style="width: 100%;">
+                            <option selected="selected" disabled>Pilih</option>
+                            <?php foreach ($TahunAkademik as $akademik) { ?>
+                                <option value="<?= $akademik->id ?>" <?= $akademik->id == $key->id_thn_akademik ? "selected" : "" ?> ><?= $akademik->tahun ?></option>
                             <?php } ?>
                         </select>
                     </div>

@@ -4,16 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class SiswaModel extends Model
+class TahunAkademikModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'siswa';
-    protected $primaryKey       = 'nis';
+    protected $table            = 'tahun_akademik';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nis','id_kelas', 'id_thn_akademik ','nama_siswa','jk','alamat','no_hp','nama_orang_tua','pekerjaan_orang_tua'];
+    protected $allowedFields    = ['tahun'];
 
     // Dates
     protected $useTimestamps = false;

@@ -5,7 +5,7 @@
 	<div class="container-fluid">
 		<div class="row mb-2">
 			<div class="col-sm-6">
-				<h1 class="m-0">Laporan Data Nilai</h1>
+				<h1 class="m-0">Laporan Data Siswa</h1>
 			</div>
 		</div>
 		<!-- /.row -->
@@ -20,7 +20,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-siswa">
                             Export Laporan +
                         </button>
                     </div>
@@ -39,19 +39,27 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Siswa</th>
-                                    <th>Mata Pelajaran</th>
-                                    <th>Nilai</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Alamat</th>
+                                    <th>No Hape</th>
+                                    <th>Nama Orang Tua</th>
+                                    <th>Pekerjaan Orang Tua</th>
                                     <th>Kelas</th>
+                                    <th>Tahun Akademik</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no = 1; foreach($Nilai as $key){ ?>
+                                <?php $no = 1; foreach($Siswa as $key){ ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $key->nama_siswa ?></td>
-                                        <td><?= $key->mapel ?></td>
-                                        <td><?= $key->nilai ?></td>
+                                        <td><?= $key->jk ?></td>
+                                        <td><?= $key->alamat ?></td>
+                                        <td><?= $key->no_hp ?></td>
+                                        <td><?= $key->nama_orang_tua ?></td>
+                                        <td><?= $key->pekerjaan_orang_tua ?></td>
                                         <td><?= $key->kelas ?></td>
+                                        <td><?= $key->tahun ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -71,7 +79,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('modal') ?>
-<div class="modal fade" id="modal-nilai">
+<div class="modal fade" id="modal-siswa">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -80,18 +88,8 @@
 				<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form action="<?= base_url('laporan/export/nilai') ?>" method="POST">
+			<form action="<?= base_url('laporan/export/siswa') ?>" method="POST">
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label>Nama Siswa</label>
-                        <select id="nis" name="nis" class="form-control select2" style="width: 100%;">
-                            <option selected="selected" disabled>Pilih</option>
-                            <option value="Semua" >Semua Siswa</option>
-                            <?php foreach ($Siswa as $siswa) { ?>
-                                <option value="<?= $siswa->nis ?>" ><?= $siswa->nama_siswa ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
                     <div class="form-group">
                         <label>Kelas</label>
                         <select id="id_kelas" name="id_kelas" class="form-control select2" style="width: 100%;">
@@ -106,6 +104,7 @@
                         <label>Tahun Akademik</label>
                         <select id="id_thn_akademik" name="id_thn_akademik" class="form-control select2" style="width: 100%;">
                             <option selected="selected" disabled>Pilih</option>
+                            <option value="Semua">Semua Tahun</option>
                             <?php foreach ($TahunAkademik as $akademik) { ?>
                                 <option value="<?= $akademik->id ?>" ><?= $akademik->tahun ?></option>
                             <?php } ?>

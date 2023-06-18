@@ -45,6 +45,14 @@
 						</a>
 					</li>
 					<li class="nav-item">
+						<a href="<?= base_url('tahunakademik') ?>" class="nav-link">
+							<i class="nav-icon fas fa-columns"></i>
+							<p>
+								Data Tahun Akademik
+							</p>
+						</a>
+					</li>
+					<li class="nav-item">
 						<a href="<?= base_url('siswa') ?>" class="nav-link">
 							<i class="nav-icon fas fa-copy"></i>
 							<p>
@@ -107,15 +115,21 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="<?= base_url('laporan/keuangan') ?>" class="nav-link">
+							<a href="<?= base_url('laporan/siswa') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Laporan Keuangan</p>
+								<p>Laporan Data Siswa</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="<?= base_url('laporan/nilai') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Laporan Nilai Siswa</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('laporan/keuangan') ?>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Laporan Keuangan</p>
 							</a>
 						</li>
 					</ul>

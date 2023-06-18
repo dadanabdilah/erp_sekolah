@@ -5,7 +5,7 @@
 	<div class="container-fluid">
 		<div class="row mb-2">
 			<div class="col-sm-6">
-				<h1 class="m-0">Laporan Data Nilai</h1>
+				<h1 class="m-0">Data Tahun Akademik</h1>
 			</div>
 		</div>
 		<!-- /.row -->
@@ -20,8 +20,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai">
-                            Export Laporan +
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+                            Tambah Data +
                         </button>
                     </div>
                     <!-- /.card-header -->
@@ -38,20 +38,19 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Siswa</th>
-                                    <th>Mata Pelajaran</th>
-                                    <th>Nilai</th>
-                                    <th>Kelas</th>
+                                    <th>Tahun</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no = 1; foreach($Nilai as $key){ ?>
+                                <?php $no = 1; foreach($TahunAkademik as $key){ ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $key->nama_siswa ?></td>
-                                        <td><?= $key->mapel ?></td>
-                                        <td><?= $key->nilai ?></td>
-                                        <td><?= $key->kelas ?></td>
+                                        <td><?= $key->tahun ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-update<?= $key->id ?>">Edit</button>
+                                            <a href="<?= base_url('tahunakademik/delete/' . $key->id)  ?>" class="btn btn-warning btn-sm" >Hapus</button>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -71,50 +70,25 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('modal') ?>
-<div class="modal fade" id="modal-nilai">
+<div class="modal fade" id="modal-default">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title">Export Data</h4>
+				<h4 class="modal-title">Tambah Data</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form action="<?= base_url('laporan/export/nilai') ?>" method="POST">
+			<form action="<?= base_url('tahunakademik/insert') ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Nama Siswa</label>
-                        <select id="nis" name="nis" class="form-control select2" style="width: 100%;">
-                            <option selected="selected" disabled>Pilih</option>
-                            <option value="Semua" >Semua Siswa</option>
-                            <?php foreach ($Siswa as $siswa) { ?>
-                                <option value="<?= $siswa->nis ?>" ><?= $siswa->nama_siswa ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Kelas</label>
-                        <select id="id_kelas" name="id_kelas" class="form-control select2" style="width: 100%;">
-                            <option selected="selected" disabled>Pilih</option>
-                            <option value="Semua">Semua Kelas</option>
-                            <?php foreach ($Kelas as $kelas) { ?>
-                                <option value="<?= $kelas->id ?>" ><?= $kelas->kelas ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Tahun Akademik</label>
-                        <select id="id_thn_akademik" name="id_thn_akademik" class="form-control select2" style="width: 100%;">
-                            <option selected="selected" disabled>Pilih</option>
-                            <?php foreach ($TahunAkademik as $akademik) { ?>
-                                <option value="<?= $akademik->id ?>" ><?= $akademik->tahun ?></option>
-                            <?php } ?>
-                        </select>
+                        <label>Tahun</label>
+                        <input class="form-control" type="text" name="tahun" />
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Export</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
 		</div>
@@ -123,6 +97,38 @@
 	<!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+
+<?php $no = 1; foreach($TahunAkademik as $key){ ?>
+<div class="modal fade" id="modal-update<?= $key->id ?>">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Tambah Data</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form action="<?= base_url('tahunakademik/update') ?>" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Tahun</label>
+                        <input class="form-control" type="hidden" name="id" value="<?= $key->id ?>" />
+                        <input class="form-control" type="text" name="tahun" value="<?= $key->tahun ?>" />
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<?php } ?>
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>

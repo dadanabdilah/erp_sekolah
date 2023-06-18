@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `kategori` (
   `id` int NOT NULL,
   `kategori` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kategori`
@@ -48,7 +48,7 @@ INSERT INTO `kategori` (`id`, `kategori`) VALUES
 CREATE TABLE `kelas` (
   `id` int NOT NULL,
   `kelas` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kelas`
@@ -70,7 +70,7 @@ CREATE TABLE `keuangan` (
   `id_kategori` int NOT NULL,
   `keterangan` varchar(128) NOT NULL,
   `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `keuangan`
@@ -87,8 +87,8 @@ INSERT INTO `keuangan` (`id`, `nominal`, `jenis`, `id_kategori`, `keterangan`, `
 
 CREATE TABLE `mapel` (
   `id` int NOT NULL,
-  `mapel` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `mapel` varchar(50) CHARACTER SET utf8mb4  NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,7 @@ CREATE TABLE `nilai` (
   `nilai` int NOT NULL,
   `nis` int NOT NULL,
   `id_mapel` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -114,8 +114,8 @@ CREATE TABLE `pengguna` (
   `nama_pengguna` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `jabatan` enum('Admin','Kepala_Sekolah','Keuangan','Wali_Kelas') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `jabatan` enum('Admin','Kepala_Sekolah','Keuangan','Wali_Kelas') CHARACTER SET utf8mb4  NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pengguna`
@@ -140,7 +140,7 @@ CREATE TABLE `siswa` (
   `no_hp` varchar(13) NOT NULL,
   `nama_orang_tua` varchar(128) NOT NULL,
   `pekerjaan_orang_tua` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `siswa`

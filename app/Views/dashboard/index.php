@@ -29,6 +29,7 @@
 		<?php endif ?>
 		<!-- Small boxes (Stat box) -->
 		<div class="row">
+			<?php if(session()->get('jabatan') == "Admin") { ?>
 			<div class="col-lg-3 col-6">
 				<!-- small box -->
 				<div class="small-box bg-info">
@@ -39,9 +40,24 @@
 					<div class="icon">
 						<i class="ion ion-person-add"></i>
 					</div>
-					<!-- <a href="#" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a> -->
 				</div>
 			</div>
+			<?php } ?>
+			<?php if(session()->get('jabatan') == "Wali_Kelas" OR session()->get('jabatan') == "Admin" OR session()->get('jabatan') == "Kepala_Sekolah") { ?>
+			<div class="col-lg-3 col-6">
+				<!-- small box -->
+				<div class="small-box bg-warning">
+					<div class="inner">
+						<h3 class="text-white"><?= $Siswa ?></h3>
+						<p class="text-white">Total Siswa</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-person"></i>
+					</div>
+				</div>
+			</div>
+			<?php } ?>
+			<?php if(session()->get('jabatan') == "Admin" OR session()->get('jabatan') == "Keuangan" OR session()->get('jabatan') == "Kepala_Sekolah") { ?>
 			<!-- ./col -->
 			<div class="col-lg-3 col-6">
 				<!-- small box -->
@@ -68,6 +84,7 @@
 					</div>
 				</div>
 			</div>
+			<?php } ?>
 			<!-- ./col -->
 		</div>
 		<!-- /.row -->

@@ -16,6 +16,7 @@ use App\Models\MapelModel;
 use App\Models\NilaiModel;
 use App\Models\KategoriModel;
 use App\Models\KeuanganModel;
+use App\Models\TahunAkademikModel;
 /**
  * Class BaseController
  *
@@ -70,5 +71,6 @@ abstract class BaseController extends Controller
         $this->Nilai = new NilaiModel;
         $this->Kategori = new KategoriModel;
         $this->Keuangan = new KeuanganModel;
+        $this->TahunAkademik = new TahunAkademikModel;
     }
 }

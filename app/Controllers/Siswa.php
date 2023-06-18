@@ -9,8 +9,9 @@ class Siswa extends BaseController
     public function index()
     {
         $data = [
-            'Siswa' => $this->Siswa->join('kelas', 'kelas.id = siswa.id_kelas')->findAll(),
-            'Kelas' => $this->Kelas->findAll()
+            'Siswa' => $this->Siswa->join('kelas', 'kelas.id = siswa.id_kelas')->join('tahun_akademik', 'tahun_akademik.id = siswa.id_thn_akademik')->findAll(),
+            'Kelas' => $this->Kelas->findAll(),
+            'TahunAkademik' => $this->TahunAkademik->findAll()
         ];
         return view("siswa/index", $data);
     }
@@ -25,6 +26,7 @@ class Siswa extends BaseController
             'nama_orang_tua' => 'required',
             'pekerjaan_orang_tua' => 'required',
             'id_kelas' => 'required',
+            'id_thn_akademik' => 'required',
         ])){
             session()->setFlashdata('error', $this->validator->listErrors());
 
@@ -34,6 +36,7 @@ class Siswa extends BaseController
         $request = [
             'nis' => $this->request->getPost('nis'),
             'id_kelas' => $this->request->getPost('id_kelas'),
+            'id_thn_akademik' => $this->request->getPost('id_thn_akademik'),
             'nama_siswa' => $this->request->getPost('nama_siswa'),
             'jk' => $this->request->getPost('jk'),
             'alamat' => $this->request->getPost('alamat'),
@@ -64,6 +67,7 @@ class Siswa extends BaseController
             'nama_orang_tua' => 'required',
             'pekerjaan_orang_tua' => 'required',
             'id_kelas' => 'required',
+            'id_thn_akademik' => 'required',
         ])){
             session()->setFlashdata('error', $this->validator->listErrors());
 
@@ -73,6 +77,7 @@ class Siswa extends BaseController
         $request = [
             'nis' => $this->request->getPost('nis'),
             'id_kelas' => $this->request->getPost('id_kelas'),
+            'id_thn_akademik' => $this->request->getPost('id_thn_akademik'),
             'nama_siswa' => $this->request->getPost('nama_siswa'),
             'jk' => $this->request->getPost('jk'),
             'alamat' => $this->request->getPost('alamat'),
