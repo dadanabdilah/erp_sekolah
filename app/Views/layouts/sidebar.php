@@ -30,7 +30,7 @@
 				<?php if(session()->get('jabatan') == "Admin") { ?>
 					<li class="nav-item">
 						<a href="<?= base_url('pengguna') ?>" class="nav-link">
-							<i class="nav-icon fas fa-th"></i>
+							<i class="nav-icon fas fa-user"></i>
 							<p>
 								Data Pengguna
 							</p>
@@ -46,7 +46,7 @@
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url('tahunakademik') ?>" class="nav-link">
-							<i class="nav-icon fas fa-columns"></i>
+							<i class="nav-icon fas fa-calendar"></i>
 							<p>
 								Data Tahun Akademik
 							</p>
@@ -54,7 +54,7 @@
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url('siswa') ?>" class="nav-link">
-							<i class="nav-icon fas fa-copy"></i>
+							<i class="nav-icon fas fa-users"></i>
 							<p>
 								Data Siswa
 							</p>
