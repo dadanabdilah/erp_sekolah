@@ -52,6 +52,8 @@
 							</p>
 						</a>
 					</li>
+				<?php } ?>
+				<?php if(session()->get('jabatan') == "Admin" OR session()->get('jabatan') == "Wali_Kelas") { ?>
 					<li class="nav-item">
 						<a href="<?= base_url('siswa') ?>" class="nav-link">
 							<i class="nav-icon fas fa-users"></i>
@@ -60,6 +62,8 @@
 							</p>
 						</a>
 					</li>
+				<?php } ?>
+				<?php if(session()->get('jabatan') == "Admin") { ?>
 					<li class="nav-item">
 						<a href="<?= base_url('mapel') ?>" class="nav-link">
 						<i class="nav-icon fas fa-table"></i>
