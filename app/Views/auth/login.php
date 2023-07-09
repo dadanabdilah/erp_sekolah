@@ -16,7 +16,7 @@
           <div class="alert alert-success" role="alert"><?= session('message') ?></div>
       <?php endif ?>
 
-      <form action="<?= base_url('login') ?>" method="POST">
+      <form action="<?= base_url('/') ?>" method="POST">
         <div class="input-group mb-3">
           <input type="email" class="form-control" name="email" placeholder="Email">
           <div class="input-group-append">
