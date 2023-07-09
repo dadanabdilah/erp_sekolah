@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 18, 2023 at 08:13 AM
+-- Generation Time: Jul 09, 2023 at 08:59 AM
 -- Server version: 8.0.30
 -- PHP Version: 7.4.33
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `kategori` (
   `id` int NOT NULL,
   `kategori` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `kategori`
@@ -49,7 +49,7 @@ INSERT INTO `kategori` (`id`, `kategori`) VALUES
 CREATE TABLE `kelas` (
   `id` int NOT NULL,
   `kelas` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `kelas`
@@ -72,7 +72,7 @@ CREATE TABLE `keuangan` (
   `id_kategori` int NOT NULL,
   `keterangan` varchar(128) NOT NULL,
   `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `keuangan`
@@ -90,8 +90,8 @@ INSERT INTO `keuangan` (`id`, `nominal`, `jenis`, `id_kategori`, `keterangan`, `
 
 CREATE TABLE `mapel` (
   `id` int NOT NULL,
-  `mapel` varchar(50) CHARACTER SET utf8mb4 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `mapel` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `mapel`
@@ -112,7 +112,7 @@ CREATE TABLE `nilai` (
   `nilai` int NOT NULL,
   `nis` int NOT NULL,
   `id_mapel` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `nilai`
@@ -134,18 +134,18 @@ CREATE TABLE `pengguna` (
   `nama_pengguna` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `jabatan` enum('Admin','Kepala_Sekolah','Keuangan','Wali_Kelas') CHARACTER SET utf8mb4 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `jabatan` enum('Admin','Kepala_Sekolah','Keuangan','Wali_Kelas') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`id`, `nama_pengguna`, `email`, `password`, `jabatan`) VALUES
-(2, 'Dadan Abdilah', 'admin@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Admin'),
-(3, 'Dadan', 'keuangan@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Keuangan'),
-(4, 'Wali Kelas', 'walikelas@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Wali_Kelas'),
-(5, 'Kepala Sekolah', 'kepsek@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Kepala_Sekolah');
+(2, 'Admin', 'admin@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Admin'),
+(3, 'Keuangan', 'keuangan@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Keuangan'),
+(4, 'Wali Kelas', 'walikelas@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Wali_Kelas'),
+(5, 'Kepala Sekolah', 'kepsek@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Kepala_Sekolah');
 
 -- --------------------------------------------------------
 
@@ -163,7 +163,7 @@ CREATE TABLE `siswa` (
   `no_hp` varchar(13) NOT NULL,
   `nama_orang_tua` varchar(128) NOT NULL,
   `pekerjaan_orang_tua` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `siswa`
@@ -183,7 +183,7 @@ INSERT INTO `siswa` (`nis`, `id_kelas`, `id_thn_akademik`, `nama_siswa`, `jk`, `
 CREATE TABLE `tahun_akademik` (
   `id` int NOT NULL,
   `tahun` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tahun_akademik`
